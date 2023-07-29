@@ -1,0 +1,59 @@
+
+
+## Setting Up Tor
+
+1. **Install Tor:** 
+   - Visit the official Tor Project website (https://www.torproject.org/) to download and install Tor for your specific operating system.
+
+2. **Configure Tor:** 
+   - Once Tor is installed, find the Tor configuration file (torrc) and modify it to act as a SOCKS proxy. By default, the configuration file is usually located in `/etc/tor/torrc` on Linux systems or in the Tor Browser directory on Windows.
+
+   - Open the torrc file using a text editor and add the following lines at the end:
+     ```
+     SOCKSPort 9050
+     ```
+
+3. **Start Tor:**
+   - Start the Tor service using the appropriate method for your operating system. For instance, on Linux, you can start Tor using:
+     ```
+     sudo service tor start
+     ```
+
+   - Make sure the Tor service is running and listening on port 9050, which will act as the SOCKS proxy.
+
+## Using the Python Proxy Server
+
+1. **Install Dependencies:**
+   - Make sure you have Python installed on your system. You can download it from the official Python website (https://www.python.org/downloads/).
+
+   - Install the necessary Python packages using pip:
+     ```
+     pip install stem
+     ```
+
+2. **Run the Proxy Server:**
+   - Download the provided Python proxy server code (let's assume it's named `proxy_server.py`) to your local machine.
+
+   - Open a terminal or command prompt and navigate to the directory where `proxy_server.py` is located.
+
+   - Run the proxy server with the following command:
+     ```
+     python proxy_server.py
+     ```
+
+3. **Input Target URL and Port:**
+   - The proxy server will start and listen for incoming client connections on IP address `127.0.0.1` and port `8888`.
+
+   - For each incoming connection, the server will ask you to input the target URL (e.g., `game.endless-online.com`) and port (e.g., `80`). Enter the desired target URL and port for each connection.
+
+4. **Configure Client:**
+   - To connect to the proxy server using a client (e.g., a web browser or any other program), configure the client to use the SOCKS proxy. In most cases, you can find the proxy settings in the client's network settings.
+
+   - Set the SOCKS proxy to use IP `127.0.0.1` and port `8888`, as specified when running the proxy server.
+
+5. **Start Browsing:**
+   - Once the client is configured to use the proxy server, start using the client to browse the internet or connect to the specified target URL and port.
+
+   - The Python proxy server will handle the connections, and data will be routed through Tor, giving the appearance of coming from different exit nodes.
+
+Remember, using Tor to access services not intended for Tor use may violate the services' terms of service or local laws. Always ensure you use this code responsibly and comply with all legal and ethical considerations. Only use this code for legitimate purposes and respect the laws and regulations of your region.
